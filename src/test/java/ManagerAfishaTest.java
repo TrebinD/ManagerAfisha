@@ -157,6 +157,7 @@ class ManagerAfishaTest {
 
     @Test
     public void findAllLimit() {
+        ManagerAfisha managerAfisha = new ManagerAfisha(5);
         managerAfisha.addFilms(films5);
         managerAfisha.addFilms(films6);
         managerAfisha.addFilms(films7);
@@ -166,7 +167,7 @@ class ManagerAfishaTest {
         managerAfisha.addFilms(films11);
 
         DescriptionFilm[] input = new DescriptionFilm[]{films7, films8, films9, films10, films11,};
-        DescriptionFilm[] output = managerAfisha.findLast(5);
+        DescriptionFilm[] output = managerAfisha.findLast();
         int actual = output.length;
         int expected = 5;
 
@@ -176,11 +177,16 @@ class ManagerAfishaTest {
 
     @Test
     public void findAllDownLimitLenghthArray() {
+        ManagerAfisha managerAfisha = new ManagerAfisha(5);
+        managerAfisha.addFilms(films5);
+        managerAfisha.addFilms(films6);
+        managerAfisha.addFilms(films7);
+        managerAfisha.addFilms(films8);
 
-        DescriptionFilm[] output = managerAfisha.findLast(5);
+        DescriptionFilm[] output = managerAfisha.findLast();
 
         int actual = output.length;
-        int expected = 3;
+        int expected = 4;
 
 
         assertEquals(expected, actual);

@@ -1,7 +1,18 @@
 public class ManagerAfisha {
-    private int maxOutputFilms = 10;
+
 
     private DescriptionFilm[] films = new DescriptionFilm[0];
+    private int maxOutputFilms = 10;
+
+    public ManagerAfisha() {
+
+    }
+
+    public ManagerAfisha(int maxOutputFilms) {
+        this.maxOutputFilms = maxOutputFilms;
+    }
+
+    ;
 
     public DescriptionFilm[] addFilms(DescriptionFilm film) {
         int lenght = films.length + 1;
@@ -28,37 +39,15 @@ public class ManagerAfisha {
     }
 
     public DescriptionFilm[] findLast() {
-        if (films.length <= 0) {
-            return films;
+        int length;
+        if (films.length <= maxOutputFilms) {
+            length = films.length;
         } else {
-            int length = films.length - 1;
-            int resultLength;
-            if (length < maxOutputFilms) {
-                resultLength = films.length;
-            } else {
-                resultLength = maxOutputFilms;
-            }
-            DescriptionFilm[] tmp = new DescriptionFilm[resultLength];
-            for (int i = 0; i < resultLength; i++) {
-                int index = films.length - i - 1;
-                tmp[i] = films[index];
-
-            }
-            films = tmp;
-            return films;
+            length = maxOutputFilms;
         }
-    }
-
-    public DescriptionFilm[] findLast(int maxOutputFilms) {
-        int length = films.length - 1;
-        int resultLength;
-        if (length < maxOutputFilms) {
-            resultLength = length;
-        } else {
-            resultLength = maxOutputFilms;
-        }
-        DescriptionFilm[] tmp = new DescriptionFilm[resultLength];
-        for (int i = 0; i < resultLength; i++) {
+//        int resultLength = length -1;
+        DescriptionFilm[] tmp = new DescriptionFilm[length];
+        for (int i = 0; i < length; i++) {
             int index = films.length - i - 1;
             tmp[i] = films[index];
 
@@ -66,6 +55,5 @@ public class ManagerAfisha {
         films = tmp;
         return films;
     }
-
 }
 
