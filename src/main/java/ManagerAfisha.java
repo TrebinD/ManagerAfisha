@@ -45,7 +45,6 @@ public class ManagerAfisha {
         } else {
             length = maxOutputFilms;
         }
-//        int resultLength = length -1;
         DescriptionFilm[] tmp = new DescriptionFilm[length];
         for (int i = 0; i < length; i++) {
             int index = films.length - i - 1;
